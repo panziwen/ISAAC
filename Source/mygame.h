@@ -38,6 +38,7 @@
  *      3. Use ShowInitProgress(percent) to display loading progress.
 */
 
+#include "Player.h"
 
 namespace game_framework {
 	/////////////////////////////////////////////////////////////////////////////
@@ -91,6 +92,7 @@ namespace game_framework {
 	private:
 		const int		NUMBALLS;	// 球的總數
 		CMovingBitmap   ISAAC;
+		
 	};
 
 	/////////////////////////////////////////////////////////////////////////////

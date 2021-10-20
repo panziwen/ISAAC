@@ -197,7 +197,7 @@ CGameStateRun::~CGameStateRun()
 
 void CGameStateRun::OnBeginState()
 {	
-	ISAAC.LoadBitmap(".\\Bitmaps\\isaac\\isaac_1.bmp",RGB(109,33,115));
+	ISAAC.LoadBitmap(".\\Bitmaps\\isaac\\isorigin.bmp",RGB(109,33,115));
 }
 
 void CGameStateRun::OnMove()							// ²¾°Ê¹CÀ¸¤¸¯À

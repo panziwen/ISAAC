@@ -60,6 +60,9 @@
     <ClCompile Include="Source\mygame.cpp">
       <Filter>MyGame</Filter>
     </ClCompile>
+    <ClCompile Include="Source\Player.cpp">
+      <Filter>MyGame</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Source\audio.h">
@@ -87,6 +90,9 @@
       <Filter>MFC</Filter>
     </ClInclude>
     <ClInclude Include="Source\mygame.h">
+      <Filter>MyGame</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Player.h">
       <Filter>MyGame</Filter>
     </ClInclude>
   </ItemGroup>
