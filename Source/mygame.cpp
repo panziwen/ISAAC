@@ -197,30 +197,12 @@ CGameStateRun::~CGameStateRun()
 
 void CGameStateRun::OnBeginState()
 {	
-	ISAAC.LoadBitmap(".\\Bitmaps\\isaac\\isorigin.bmp",RGB(109,33,115));
+	ISAAC.LoadBitmap();
 }
 
 void CGameStateRun::OnMove()							// 移動遊戲元素
 {
-	//
-	// 如果希望修改cursor的樣式，則將下面程式的commment取消即可
-	//
-	// SetCursor(AfxGetApp()->LoadCursor(IDC_GAMECURSOR));
-	//
-	// 移動背景圖的座標
-	//
-	
-	//
-	// 移動球
-	//
-	
-	//
-	// 移動擦子
-	//
-	
-	//
-	// 判斷擦子是否碰到球
-	//
+	ISAAC.OnMove();
 	
 }
 
@@ -248,25 +230,31 @@ void CGameStateRun::OnInit()  								// 遊戲的初值及圖形設定
 
 void CGameStateRun::OnKeyDown(UINT nChar, UINT nRepCnt, UINT nFlags)
 {
-	const char KEY_LEFT  = 0x25; // keyboard左箭頭
-	const char KEY_UP    = 0x26; // keyboard上箭頭
+	const char KEY_LEFT = 0x25; // keyboard左箭頭
+	const char KEY_UP = 0x26; // keyboard上箭頭
 	const char KEY_RIGHT = 0x27; // keyboard右箭頭
-	const char KEY_DOWN  = 0x28; // keyboard下箭頭
-	if (nChar == KEY_LEFT)
+	const char KEY_DOWN = 0x28; // keyboard下箭頭
+
+	const char KEY_W = 'W'; // keyboard左箭頭
+	const char KEY_A = 'A'; // keyboard上箭頭
+	const char KEY_S = 'S'; // keyboard右箭頭
+	const char KEY_D = 'D'; // keyboard下箭頭
+
+	if (nChar == KEY_A)
 	{
-		;
+		ISAAC.SetMovingLeft(true);
 	}
-	if (nChar == KEY_RIGHT)
+	if (nChar == KEY_D)
 	{
-		;
+		ISAAC.SetMovingRight(true);
 	}
-	if (nChar == KEY_UP)
+	if (nChar == KEY_W)
 	{
-		;
+		ISAAC.SetMovingUp(true);
 	}
-	if (nChar == KEY_DOWN)
+	if (nChar == KEY_S)
 	{
-		;
+		ISAAC.SetMovingDonw(true);
 	}
 }
 
@@ -276,21 +264,26 @@ void CGameStateRun::OnKeyUp(UINT nChar, UINT nRepCnt, UINT nFlags)
 	const char KEY_UP    = 0x26; // keyboard上箭頭
 	const char KEY_RIGHT = 0x27; // keyboard右箭頭
 	const char KEY_DOWN  = 0x28; // keyboard下箭頭
-	if (nChar == KEY_LEFT)
+
+	const char KEY_W = 'W'; // keyboard左箭頭
+	const char KEY_A = 'A'; // keyboard上箭頭
+	const char KEY_S = 'S'; // keyboard右箭頭
+	const char KEY_D = 'D'; // keyboard下箭頭
+	if (nChar == KEY_A)
 	{
-		;
+		ISAAC.SetMovingLeft(false);
 	}
-	if (nChar == KEY_RIGHT)
+	if (nChar == KEY_D)
 	{
-		;
+		ISAAC.SetMovingRight(false);
 	}
-	if (nChar == KEY_UP)
+	if (nChar == KEY_W)
 	{
-		;
+		ISAAC.SetMovingUp(false);
 	}
-	if (nChar == KEY_DOWN)
+	if (nChar == KEY_S)
 	{
-		;
+		ISAAC.SetMovingDonw(false);
 	}
 }
 
@@ -318,7 +311,6 @@ void CGameStateRun::OnRButtonUp(UINT nFlags, CPoint point)	// 處理滑鼠的動作
 
 void CGameStateRun::OnShow()
 {
-	ISAAC.SetTopLeft(150, 150);
-	ISAAC.ShowBitmap();
+	ISAAC.OnShow();
 }
 }
