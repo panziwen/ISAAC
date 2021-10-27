@@ -3,6 +3,7 @@
 - 删除原本乃荣
 - 加入一个Isaac的静态UI
 # 10.21第二次更新
+- 新增PlayerClass实现人物的控制
 - 介绍CMovingbitmap和CAnimation的区别
 - 实现人物上下左右移动(不完善)
 - 可修改底层函数实现CAnimation倍数放大
