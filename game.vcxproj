@@ -229,14 +229,7 @@
     </Bscmake>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <None Include="res\game.ico" />
-    <None Include="res\game.rc2" />
-    <None Include="RES\gamecurs.cur" />
-    <None Include="res\gameDoc.ico" />
-    <None Include="RES\loading.bmp" />
-    <None Include="res\Toolbar.bmp" />
-  </ItemGroup>
-  <ItemGroup>
+    <ClCompile Include="Source\Attack.cpp" />
     <ClCompile Include="Source\Player.cpp" />
     <ClCompile Include="Source\audio.cpp" />
     <ClCompile Include="Source\game.cpp">
@@ -281,6 +274,7 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Source\Attack.h" />
     <ClInclude Include="Source\Player.h" />
     <ClInclude Include="Source\audio.h" />
     <ClInclude Include="Source\game.h" />
@@ -298,12 +292,6 @@
       <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='UnitTest|Win32'">%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ResourceCompile>
-  </ItemGroup>
-  <ItemGroup>
-    <Image Include="Bitmaps\isaac\isaac_1.bmp" />
-    <Image Include="res\bitmap3.bmp" />
-    <Image Include="res\bitmap4.bmp" />
-    <Image Include="res\bitmap5.bmp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

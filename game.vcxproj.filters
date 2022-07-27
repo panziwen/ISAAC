@@ -1,10 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <Filter Include="Resource Files">
-      <UniqueIdentifier>{1a913106-0be0-4476-b0ce-2aa855072614}</UniqueIdentifier>
-      <Extensions>ico;cur;bmp;dlg;rc2;rct;bin;cnt;rtf;gif;jpg;jpeg;jpe</Extensions>
-    </Filter>
     <Filter Include="MFC">
       <UniqueIdentifier>{da904ee8-7f59-4a6c-b3ff-b91b6fb6d0ea}</UniqueIdentifier>
     </Filter>
@@ -14,26 +10,15 @@
     <Filter Include="MyGame">
       <UniqueIdentifier>{0c798913-b7d2-4e26-8241-0f83266cd626}</UniqueIdentifier>
     </Filter>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="res\game.ico">
-      <Filter>Resource Files</Filter>
-    </None>
-    <None Include="res\game.rc2">
-      <Filter>Resource Files</Filter>
-    </None>
-    <None Include="RES\gamecurs.cur">
-      <Filter>Resource Files</Filter>
-    </None>
-    <None Include="res\gameDoc.ico">
-      <Filter>Resource Files</Filter>
-    </None>
-    <None Include="RES\loading.bmp">
-      <Filter>Resource Files</Filter>
-    </None>
-    <None Include="res\Toolbar.bmp">
-      <Filter>Resource Files</Filter>
-    </None>
+    <Filter Include="MyGame\map">
+      <UniqueIdentifier>{17839211-37ab-47ed-a9b8-0fd22696df25}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="MyGame\player">
+      <UniqueIdentifier>{9836470e-52b1-4b0e-9609-df97aaa5a7e2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="MyGame\ctrl">
+      <UniqueIdentifier>{0d5a9dfa-8bd1-4d11-af9a-63dc34b5187c}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Source\audio.cpp">
@@ -61,7 +46,10 @@
       <Filter>MyGame</Filter>
     </ClCompile>
     <ClCompile Include="Source\Player.cpp">
-      <Filter>MyGame</Filter>
+      <Filter>MyGame\player</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Attack.cpp">
+      <Filter>MyGame\ctrl</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -93,26 +81,15 @@
       <Filter>MyGame</Filter>
     </ClInclude>
     <ClInclude Include="Source\Player.h">
-      <Filter>MyGame</Filter>
+      <Filter>MyGame\player</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Attack.h">
+      <Filter>MyGame\ctrl</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Source\game.rc">
       <Filter>MFC</Filter>
     </ResourceCompile>
-  </ItemGroup>
-  <ItemGroup>
-    <Image Include="res\bitmap3.bmp">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="res\bitmap4.bmp">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="res\bitmap5.bmp">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="Bitmaps\isaac\isaac_1.bmp">
-      <Filter>Resource Files</Filter>
-    </Image>
   </ItemGroup>
 </Project>
