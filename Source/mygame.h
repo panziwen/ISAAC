@@ -38,7 +38,6 @@
  *      3. Use ShowInitProgress(percent) to display loading progress.
 */
 #include "Player.h"
-
 namespace game_framework {
 	/////////////////////////////////////////////////////////////////////////////
 	// Constants

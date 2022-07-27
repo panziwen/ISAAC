@@ -55,6 +55,8 @@ namespace game_framework {
 							".\\bitmaps\\isaac\\isu4.bmp",".\\bitmaps\\isaac\\isu5.bmp",".\\bitmaps\\isaac\\isu6.bmp",
 							".\\bitmaps\\isaac\\isu7.bmp",".\\bitmaps\\isaac\\isu8.bmp",".\\bitmaps\\isaac\\isu9.bmp",};
 
+		a.LoadBitmap();
+
 		playOrigin.AddBitmap(file0, RGB(109, 33, 115));
 
 		for (int i = 0; i < 9; i++)
@@ -77,57 +79,142 @@ namespace game_framework {
 	void Player::OnMove()
 	{
 		const int SPEED = 5;
-		if (is_D)
+		if (is_D && !is_U && !is_L && !is_R)
 		{
 			y += SPEED;
+			is_FD = true;
+			is_FU = is_FR = is_FL = false;
 			playWalkDonw.SetDelayCount(2);
 			playWalkDonw.OnMove();
 		}
-		if (is_U)
+		if (!is_D && is_U && !is_L && !is_R)
 		{
 			y -= SPEED;
+			is_FU = true;
+			is_FD = is_FR = is_FL = false;
 			playWalkUp.SetDelayCount(2);
 			playWalkUp.OnMove();
 		}
-		if (is_R)
+		if (!is_D && !is_U && !is_L && is_R)
 		{
 			x += SPEED;
+			is_FR = true;
+			is_FU = is_FD = is_FL = false;
 			playWalkRight.SetDelayCount(2);
 			playWalkRight.OnMove();
 		}
-		if (is_L)
+		if (!is_D && !is_U && is_L && !is_R)
 		{
 			x -= SPEED;
+			is_FL = true;
+			is_FU = is_FR = is_FD = false;
 			playWalkLeft.SetDelayCount(2);
 			playWalkLeft.OnMove();
+		}
+		if (is_R&&is_U)
+		{
+			x += SPEED;
+			y -= SPEED;
+			is_FR = true;
+			is_FU = is_FD = is_FL = false;
+			playWalkRight.SetDelayCount(2);
+			playWalkRight.OnMove();
+		}
+		if (is_R&&is_D)
+		{
+			x += SPEED;
+			y += SPEED;
+			is_FR = true;
+			is_FU = is_FD = is_FL = false;
+			playWalkRight.SetDelayCount(2);
+			playWalkRight.OnMove();
+		}
+		if (is_L&&is_U)
+		{
+			x -= SPEED;
+			y -= SPEED;
+			is_FL = true;
+			is_FU = is_FD = is_FR = false;
+			playWalkLeft.SetDelayCount(2);
+			playWalkLeft.OnMove();
+		}
+		if (is_L&&is_D)
+		{
+			x -= SPEED;
+			y += SPEED;
+			is_FL = true;
+			is_FU = is_FD = is_FR = false;
+			playWalkLeft.SetDelayCount(2);
+			playWalkLeft.OnMove();
+		}
+		if (a.GetAttack())
+		{
+			a.OnMove();
+			if (!a.GetAttack())
+			{
+				a.SetAttackDirection(is_FU, is_FD, is_FL, is_FR);
+			}
 		}
 	}
 	void Player::OnShow()
 	{
 		playOrigin.SetTopLeft(x, y);
-		if (is_D)
+		if (is_D && !is_U && !is_L && !is_R)
 		{
 			playWalkDonw.SetTopLeft(x,y);
 			playWalkDonw.OnShow();
 			playOrigin = playWalkDonw;
 		}
-		if (is_U)
+		if (!is_D && is_U && !is_L && !is_R)
 		{
 			playWalkUp.SetTopLeft(x, y);
 			playWalkUp.OnShow();
 			playOrigin = playWalkUp;
 		}
-		if (is_R)
+		if (!is_D && !is_U && !is_L && is_R)
 		{
 			playWalkRight.SetTopLeft(x, y);
 			playWalkRight.OnShow();
 			playOrigin = playWalkRight;
 		}
-		if (is_L)
+		if (!is_D && !is_U && is_L && !is_R)
 		{
 			playWalkLeft.SetTopLeft(x, y);
 			playWalkLeft.OnShow();
 			playOrigin = playWalkLeft;
+		}
+		if (is_R&&is_U)
+		{
+			playWalkRight.SetTopLeft(x, y);
+			playWalkRight.OnShow();
+			playOrigin = playWalkRight;
+		}
+		if (is_R&&is_D)
+		{
+			playWalkRight.SetTopLeft(x, y);
+			playWalkRight.OnShow();
+			playOrigin = playWalkRight;
+		}
+		if (is_L&&is_U)
+		{
+			playWalkLeft.SetTopLeft(x, y);
+			playWalkLeft.OnShow();
+			playOrigin = playWalkLeft;
+		}
+		if (is_L&&is_D)
+		{
+			playWalkLeft.SetTopLeft(x, y);
+			playWalkLeft.OnShow();
+			playOrigin = playWalkLeft;
+		}
+		else if (!is_D && !is_U && !is_L && !is_R)
+		{
+			playOrigin.OnShow();
+			playOrigin.Reset();
+		}
+		if (a.GetAttack())
+		{
+			a.OnShow();
 		}
 		playOrigin.OnShow();
 		playOrigin.Reset();
@@ -147,5 +234,16 @@ namespace game_framework {
 	void Player::SetMovingRight(bool flag)
 	{
 		is_R = flag;
+	}
+	void Player::SetAttack(bool flag)
+	{
+		is_A = flag;
+		a.SetAttack(is_A);
+		a.SetX((playOrigin.Width() / 2) + x - 37);
+		a.SetY((playOrigin.Height() / 2) + y - 35);
+	}
+	bool Player::GetAttack()
+	{
+		return a.GetAttack();
 	}
 }

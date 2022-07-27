@@ -1,4 +1,5 @@
 #pragma once
+#include "Attack.h"
 namespace game_framework {
 	class Player
 	{
@@ -17,10 +18,14 @@ namespace game_framework {
 		void SetMovingUp(bool flag);	//上下左右
 		void SetMovingLeft(bool flag);
 		void SetMovingRight(bool flag);
+		void SetAttack(bool flag);
+		bool GetAttack();
 	private:
 		CAnimation playOrigin, playWalkDonw, playWalkUp, playWalkLeft, playWalkRight;
-		bool is_D, is_U, is_R, is_L;	//获取移动状态的判断值
+		bool is_D, is_U, is_R, is_L, is_A;	//获取移动状态的判断值
 		int x, y, x1, y1;				//x人物左上角x坐标 x1人物图片的右上角x坐标 y人物图片的左上角y坐标 y1人物图片的左下角y坐标
+		bool is_FU, is_FR, is_FL, is_FD;		//子弹朝向
+		Attack a;
 
 	};
 }
