@@ -8,8 +8,11 @@
 namespace game_framework {
 	Player::Player()
 	{
+		const int pos_x = 960;
+		const int pos_y = 544;
 		is_D = is_L = is_R = is_U = false;
-		x = y = 50;
+		x = pos_x / 2; 
+		y = pos_y / 2;
 	}
 	Player::~Player()
 	{
@@ -27,11 +30,11 @@ namespace game_framework {
 	}
 	int Player::GetX2()
 	{
-		return x1;
+		return x+playOrigin.Width();
 	}
 	int Player::GetY2()
 	{
-		return y1;
+		return y+playOrigin.Height();
 	}
 	void Player::LoadBitmap()
 	{

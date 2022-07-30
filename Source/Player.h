@@ -23,7 +23,7 @@ namespace game_framework {
 	private:
 		CAnimation playOrigin, playWalkDonw, playWalkUp, playWalkLeft, playWalkRight;
 		bool is_D, is_U, is_R, is_L, is_A;	//获取移动状态的判断值
-		int x, y, x1, y1;				//x人物左上角x坐标 x1人物图片的右上角x坐标 y人物图片的左上角y坐标 y1人物图片的左下角y坐标
+		int x, y;				//x人物左上角x坐标 x1人物图片的右上角x坐标 y人物图片的左上角y坐标 y1人物图片的左下角y坐标
 		bool is_FU, is_FR, is_FL, is_FD;		//子弹朝向
 		Attack a;
 

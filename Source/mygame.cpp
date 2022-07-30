@@ -109,11 +109,14 @@ namespace game_framework {
 	void CGameStateRun::OnBeginState()
 	{	
 		ISAAC.LoadBitmap();
+		e.LoadBitmap();
 	}
 
 	void CGameStateRun::OnMove()
 	{
 		ISAAC.OnMove();
+		e.OnMove();
+		e.SetXY((ISAAC.GetX2() - ISAAC.GetX1()) / 2 + ISAAC.GetX1(), (ISAAC.GetY2() - ISAAC.GetY1()) / 2 + ISAAC.GetY1());
 	}
 
 	void CGameStateRun::OnInit()
@@ -217,5 +220,6 @@ namespace game_framework {
 	void CGameStateRun::OnShow()
 	{
 		ISAAC.OnShow();
+		e.OnShow();
 	}
 }
