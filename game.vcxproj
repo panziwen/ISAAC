@@ -229,6 +229,7 @@
     </Bscmake>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Source\Enemy.cpp" />
     <ClCompile Include="Source\Attack.cpp" />
     <ClCompile Include="Source\Player.cpp" />
     <ClCompile Include="Source\audio.cpp" />
@@ -274,6 +275,7 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Source\Enemy.h" />
     <ClInclude Include="Source\Attack.h" />
     <ClInclude Include="Source\Player.h" />
     <ClInclude Include="Source\audio.h" />

@@ -19,6 +19,9 @@
     <Filter Include="MyGame\ctrl">
       <UniqueIdentifier>{0d5a9dfa-8bd1-4d11-af9a-63dc34b5187c}</UniqueIdentifier>
     </Filter>
+    <Filter Include="MyGame\enemy">
+      <UniqueIdentifier>{2c6528a3-c614-4998-9f03-8583431f0d2c}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Source\audio.cpp">
@@ -50,6 +53,9 @@
     </ClCompile>
     <ClCompile Include="Source\Attack.cpp">
       <Filter>MyGame\ctrl</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Enemy.cpp">
+      <Filter>MyGame\enemy</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -85,6 +91,9 @@
     </ClInclude>
     <ClInclude Include="Source\Attack.h">
       <Filter>MyGame\ctrl</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Enemy.h">
+      <Filter>MyGame\enemy</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
